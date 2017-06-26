@@ -28,51 +28,14 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import UIKit
-import AVFoundation
+#import <UIKit/UIKit.h>
 
-open class CapturePreview: UIView {
-    open override class var layerClass: AnyClass {
-		return AVCaptureVideoPreviewLayer.self
-	}
+//! Project version number for Lens.
+FOUNDATION_EXPORT double LensVersionNumber;
 
-    /**
-     Converts a point in layer coordinates to a point of interest 
-     in the coordinate space of the capture device providing input 
-     to the layer.
-     - Parameter point: A CGPoint.
-     - Returns: A CGPoint that is converted.
-     */
-    open func captureDevicePointOfInterestForPoint(point: CGPoint) -> CGPoint {
-		return (layer as! AVCaptureVideoPreviewLayer).captureDevicePointOfInterest(for: point)
-	}
+//! Project version string for Lens.
+FOUNDATION_EXPORT const unsigned char LensVersionString[];
 
-	/**
-     Converts a point of interest in the coordinate space of the 
-     capture device providing input to the layer to a point in 
-     layer coordinates.
-     - Parameter point: A CGPoint.
-     - Returns: A CGPoint that is converted.
-     */
-	open func pointForCaptureDevicePointOfInterest(point: CGPoint) -> CGPoint {
-		return (layer as! AVCaptureVideoPreviewLayer).pointForCaptureDevicePoint(ofInterest: point)
-	}
+// In this header, you should import all the public headers of your framework using statements like #import <Photos/PublicHeader.h>
 
-    /**
-     Prepares the view instance when intialized. When subclassing,
-     it is recommended to override the prepare method
-     to initialize property values and other setup operations.
-     The super.prepare method should always be called immediately
-     when subclassing.
-     */
-	open func prepare() {
-		preparePreviewLayer()
-	}
 
-    /// Prepares the previewLayer.
-	private func preparePreviewLayer() {
-		layer.backgroundColor = UIColor.black.cgColor
-		layer.masksToBounds = true
-		(layer as! AVCaptureVideoPreviewLayer).videoGravity = AVLayerVideoGravityResizeAspectFill
-	}
-}

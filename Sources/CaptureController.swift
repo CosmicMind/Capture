@@ -49,7 +49,7 @@ extension UIViewController {
     }
 }
 
-open class CaptureController: ToolbarController {
+open class CaptureController: UIViewController {
     /// A reference to the Capture instance.
     @IBInspectable
     open let capture = Capture()
@@ -62,29 +62,14 @@ open class CaptureController: ToolbarController {
         return UIInterfaceOrientation.portrait
     }
     
-    open override func prepare() {
-        super.prepare()
-        displayStyle = .full
+    open func prepare() {
         view.backgroundColor = .black
         
-        prepareStatusBar()
-        prepareToolbar()
         prepareCapture()
     }
 }
 
 extension CaptureController {
-    /// Prepares the statusBar.
-    fileprivate func prepareStatusBar() {
-        statusBar.backgroundColor = .clear
-    }
-    
-    /// Prepares the toolbar.
-    fileprivate func prepareToolbar() {
-        toolbar.backgroundColor = .clear
-        toolbar.depthPreset = .none
-    }
-    
     /// Prepares capture.
     fileprivate func prepareCapture() {
         capture.delegate = self

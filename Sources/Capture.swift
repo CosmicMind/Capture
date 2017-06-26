@@ -276,7 +276,7 @@ public protocol CaptureDelegate {
     optional func capture(capture: Capture, captureOutput: AVCaptureFileOutput, didFinishRecordingToOutputFileAt outputFileURL: NSURL, fromConnections connections: [Any], error: Error!)
 }
 
-open class Capture: View {
+open class Capture: UIView {
     /// A reference to the capture mode.
     open var mode = CaptureMode.photo
 	
@@ -308,7 +308,7 @@ open class Capture: View {
     fileprivate var activeAudioInput: AVCaptureDeviceInput?
     
     /// A reference to the image output.
-    fileprivate var imageOutput: AVCaptureStillImageOutput!
+    fileprivate var imageOutput: AVCapturePhotoOutput!
     
     /// A reference to the movie output.
     fileprivate var movieOutput: AVCaptureMovieFileOutput!
@@ -606,8 +606,7 @@ open class Capture: View {
      The super.prepare method should always be called immediately
      when subclassing.
      */
-	open override func prepare() {
-		super.prepare()
+	open func prepare() {
 		backgroundColor = .black
         
         prepareSession()
@@ -653,10 +652,10 @@ extension Capture {
 extension Capture {
     /// Prepares the preview.
     fileprivate func preparePreview() {
-		layout(preview).edges()
-        
+		preview.frame = bounds
         (preview.layer as! AVCaptureVideoPreviewLayer).session = session
-		startSession()
+		addSubview(preview)
+        startSession()
 	}
     
     /// Prepares the captureButton.
@@ -721,13 +720,13 @@ extension Capture {
     
     /// Prepares the imageOutput.
     fileprivate func prepareImageOutput() {
-        imageOutput = AVCaptureStillImageOutput()
+        imageOutput = AVCapturePhotoOutput()
         
         guard session.canAddOutput(imageOutput) else {
             return
         }
         
-        imageOutput.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+//        imageOutput.format = [AVVideoCodecKey: AVVideoCodecJPEG]
         session.addOutput(imageOutput)
     }
     
@@ -967,38 +966,38 @@ extension Capture {
             }
             
             v.videoOrientation = s.videoOrientation
-            s.imageOutput.captureStillImageAsynchronously(from: v) { [weak self] (sampleBuffer: CMSampleBuffer?, error: Error?) -> Void in
-                guard let s = self else {
-                    return
-                }
-                
-                var captureError = error
-                if nil == captureError {
-                    let data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)!
-                    
-                    if let image1 = UIImage(data: data) {
-                        if let image2 = image1.adjustOrientation() {
-                            s.delegate?.capture?(capture: s, asynchronouslyStill: image2)
-                        } else {
-                            var userInfo = [String: Any]()
-                            userInfo[NSLocalizedDescriptionKey] = "[Material Error: Cannot fix image orientation.]"
-                            userInfo[NSLocalizedFailureReasonErrorKey] = "[Material Error: Cannot fix image orientation.]"
-                            captureError = NSError(domain: "com.cosmicmind.material.capture", code: 0006, userInfo: userInfo)
-                            userInfo[NSUnderlyingErrorKey] = error
-                        }
-                    } else {
-                        var userInfo = [String: Any]()
-                        userInfo[NSLocalizedDescriptionKey] = "[Material Error: Cannot capture image from data.]"
-                        userInfo[NSLocalizedFailureReasonErrorKey] = "[Material Error: Cannot capture image from data.]"
-                        captureError = NSError(domain: "com.cosmicmind.material.capture", code: 0007, userInfo: userInfo)
-                        userInfo[NSUnderlyingErrorKey] = error
-                    }
-                }
-                
-                if let e = captureError {
-                    s.delegate?.capture?(capture: s, asynchronouslyStillImageFailedWith: e)
-                }
-            }
+//            s.imageOutput.captureStillImageAsynchronously(from: v) { [weak self] (sampleBuffer: CMSampleBuffer?, error: Error?) -> Void in
+//                guard let s = self else {
+//                    return
+//                }
+//                
+//                var captureError = error
+//                if nil == captureError {
+//                    let data = AVCapturePhotoOutput.jpegStillImageNSDataRepresentation(sampleBuffer)!
+//                    
+//                    if let image1 = UIImage(data: data) {
+//                        if let image2 = image1.adjustOrientation() {
+//                            s.delegate?.capture?(capture: s, asynchronouslyStill: image2)
+//                        } else {
+//                            var userInfo = [String: Any]()
+//                            userInfo[NSLocalizedDescriptionKey] = "[Material Error: Cannot fix image orientation.]"
+//                            userInfo[NSLocalizedFailureReasonErrorKey] = "[Material Error: Cannot fix image orientation.]"
+//                            captureError = NSError(domain: "com.cosmicmind.material.capture", code: 0006, userInfo: userInfo)
+//                            userInfo[NSUnderlyingErrorKey] = error
+//                        }
+//                    } else {
+//                        var userInfo = [String: Any]()
+//                        userInfo[NSLocalizedDescriptionKey] = "[Material Error: Cannot capture image from data.]"
+//                        userInfo[NSLocalizedFailureReasonErrorKey] = "[Material Error: Cannot capture image from data.]"
+//                        captureError = NSError(domain: "com.cosmicmind.material.capture", code: 0007, userInfo: userInfo)
+//                        userInfo[NSUnderlyingErrorKey] = error
+//                    }
+//                }
+//                
+//                if let e = captureError {
+//                    s.delegate?.capture?(capture: s, asynchronouslyStillImageFailedWith: e)
+//                }
+//            }
         }
     }
     

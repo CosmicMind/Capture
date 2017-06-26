@@ -12,7 +12,7 @@
 		965689BC1F017E37001C656D /* CapturePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689B51F017E37001C656D /* CapturePreview.swift */; };
 		965689BE1F017E37001C656D /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689B71F017E37001C656D /* PhotoLibrary.swift */; };
 		965689BF1F017E37001C656D /* PhotoLibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689B81F017E37001C656D /* PhotoLibraryController.swift */; };
-		965689C01F017E37001C656D /* Photos.h in Headers */ = {isa = PBXBuildFile; fileRef = 965689B91F017E37001C656D /* Photos.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		965689C01F017E37001C656D /* Lens.h in Headers */ = {isa = PBXBuildFile; fileRef = 965689B91F017E37001C656D /* Lens.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		965689C11F017E4A001C656D /* Capture.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689B31F017E37001C656D /* Capture.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		965689C21F017E4A001C656D /* CaptureController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689B41F017E37001C656D /* CaptureController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		965689C31F017E4A001C656D /* CapturePreview.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689B51F017E37001C656D /* CapturePreview.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,7 +29,7 @@
 		965689B61F017E37001C656D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		965689B71F017E37001C656D /* PhotoLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLibrary.swift; sourceTree = "<group>"; };
 		965689B81F017E37001C656D /* PhotoLibraryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLibraryController.swift; sourceTree = "<group>"; };
-		965689B91F017E37001C656D /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
+		965689B91F017E37001C656D /* Lens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lens.h; sourceTree = "<group>"; };
 		965689C81F017EC0001C656D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,13 +64,13 @@
 			isa = PBXGroup;
 			children = (
 				965689C81F017EC0001C656D /* LICENSE */,
+				965689B91F017E37001C656D /* Lens.h */,
 				965689B31F017E37001C656D /* Capture.swift */,
 				965689B41F017E37001C656D /* CaptureController.swift */,
 				965689B51F017E37001C656D /* CapturePreview.swift */,
 				965689B61F017E37001C656D /* Info.plist */,
 				965689B71F017E37001C656D /* PhotoLibrary.swift */,
 				965689B81F017E37001C656D /* PhotoLibraryController.swift */,
-				965689B91F017E37001C656D /* Photos.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -87,7 +87,7 @@
 				965689C31F017E4A001C656D /* CapturePreview.swift in Headers */,
 				965689C41F017E4A001C656D /* PhotoLibrary.swift in Headers */,
 				965689C51F017E4A001C656D /* PhotoLibraryController.swift in Headers */,
-				965689C01F017E37001C656D /* Photos.h in Headers */,
+				965689C01F017E37001C656D /* Lens.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
