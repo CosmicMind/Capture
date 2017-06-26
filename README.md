@@ -1,4 +1,4 @@
-## Welcome to Lens
+## Welcome to Flash
 
 A framework for managing photos and video in iOS.
 

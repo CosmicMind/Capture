@@ -12,7 +12,7 @@
 		965689BC1F017E37001C656D /* CapturePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689B51F017E37001C656D /* CapturePreview.swift */; };
 		965689BE1F017E37001C656D /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689B71F017E37001C656D /* PhotoLibrary.swift */; };
 		965689BF1F017E37001C656D /* PhotoLibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689B81F017E37001C656D /* PhotoLibraryController.swift */; };
-		965689C01F017E37001C656D /* Lens.h in Headers */ = {isa = PBXBuildFile; fileRef = 965689B91F017E37001C656D /* Lens.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		965689C01F017E37001C656D /* Flash.h in Headers */ = {isa = PBXBuildFile; fileRef = 965689B91F017E37001C656D /* Flash.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		965689C11F017E4A001C656D /* Capture.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689B31F017E37001C656D /* Capture.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		965689C21F017E4A001C656D /* CaptureController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689B41F017E37001C656D /* CaptureController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		965689C31F017E4A001C656D /* CapturePreview.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689B51F017E37001C656D /* CapturePreview.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,14 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9656898E1F017C2A001C656D /* Lens.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lens.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9656898E1F017C2A001C656D /* Flash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		965689B31F017E37001C656D /* Capture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capture.swift; sourceTree = "<group>"; };
 		965689B41F017E37001C656D /* CaptureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureController.swift; sourceTree = "<group>"; };
 		965689B51F017E37001C656D /* CapturePreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePreview.swift; sourceTree = "<group>"; };
 		965689B61F017E37001C656D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		965689B71F017E37001C656D /* PhotoLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLibrary.swift; sourceTree = "<group>"; };
 		965689B81F017E37001C656D /* PhotoLibraryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLibraryController.swift; sourceTree = "<group>"; };
-		965689B91F017E37001C656D /* Lens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lens.h; sourceTree = "<group>"; };
+		965689B91F017E37001C656D /* Flash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flash.h; sourceTree = "<group>"; };
 		965689C81F017EC0001C656D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,7 +55,7 @@
 		9656898F1F017C2A001C656D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9656898E1F017C2A001C656D /* Lens.framework */,
+				9656898E1F017C2A001C656D /* Flash.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				965689C81F017EC0001C656D /* LICENSE */,
-				965689B91F017E37001C656D /* Lens.h */,
+				965689B91F017E37001C656D /* Flash.h */,
 				965689B31F017E37001C656D /* Capture.swift */,
 				965689B41F017E37001C656D /* CaptureController.swift */,
 				965689B51F017E37001C656D /* CapturePreview.swift */,
@@ -87,16 +87,16 @@
 				965689C31F017E4A001C656D /* CapturePreview.swift in Headers */,
 				965689C41F017E4A001C656D /* PhotoLibrary.swift in Headers */,
 				965689C51F017E4A001C656D /* PhotoLibraryController.swift in Headers */,
-				965689C01F017E37001C656D /* Lens.h in Headers */,
+				965689C01F017E37001C656D /* Flash.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9656898D1F017C2A001C656D /* Lens */ = {
+		9656898D1F017C2A001C656D /* Flash */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 965689961F017C2A001C656D /* Build configuration list for PBXNativeTarget "Lens" */;
+			buildConfigurationList = 965689961F017C2A001C656D /* Build configuration list for PBXNativeTarget "Flash" */;
 			buildPhases = (
 				965689891F017C2A001C656D /* Sources */,
 				9656898A1F017C2A001C656D /* Frameworks */,
@@ -107,9 +107,9 @@
 			);
 			dependencies = (
 			);
-			name = Lens;
+			name = Flash;
 			productName = Photos;
-			productReference = 9656898E1F017C2A001C656D /* Lens.framework */;
+			productReference = 9656898E1F017C2A001C656D /* Flash.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -128,7 +128,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 965689881F017C2A001C656D /* Build configuration list for PBXProject "Lens" */;
+			buildConfigurationList = 965689881F017C2A001C656D /* Build configuration list for PBXProject "Flash" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -140,7 +140,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9656898D1F017C2A001C656D /* Lens */,
+				9656898D1F017C2A001C656D /* Flash */,
 			);
 		};
 /* End PBXProject section */
@@ -315,7 +315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		965689881F017C2A001C656D /* Build configuration list for PBXProject "Lens" */ = {
+		965689881F017C2A001C656D /* Build configuration list for PBXProject "Flash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				965689941F017C2A001C656D /* Debug */,
@@ -324,7 +324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		965689961F017C2A001C656D /* Build configuration list for PBXNativeTarget "Lens" */ = {
+		965689961F017C2A001C656D /* Build configuration list for PBXNativeTarget "Flash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				965689971F017C2A001C656D /* Debug */,

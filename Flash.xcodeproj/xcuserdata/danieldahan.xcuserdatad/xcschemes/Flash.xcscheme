@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9656898D1F017C2A001C656D"
-               BuildableName = "Lens.framework"
-               BlueprintName = "Lens"
-               ReferencedContainer = "container:Lens.xcodeproj">
+               BuildableName = "Flash.framework"
+               BlueprintName = "Flash"
+               ReferencedContainer = "container:Flash.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9656898D1F017C2A001C656D"
-            BuildableName = "Lens.framework"
-            BlueprintName = "Lens"
-            ReferencedContainer = "container:Lens.xcodeproj">
+            BuildableName = "Flash.framework"
+            BlueprintName = "Flash"
+            ReferencedContainer = "container:Flash.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9656898D1F017C2A001C656D"
-            BuildableName = "Lens.framework"
-            BlueprintName = "Lens"
-            ReferencedContainer = "container:Lens.xcodeproj">
+            BuildableName = "Flash.framework"
+            BlueprintName = "Flash"
+            ReferencedContainer = "container:Flash.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
