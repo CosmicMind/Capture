@@ -350,7 +350,7 @@ open class Capture: UIView {
     
     /// Available number of cameras.
     open var cameraCount: Int {
-        return AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).count
+        return 1 //AVCaptureDeviceDiscoverySession().devices[AVMediaTypeVideo].count
     }
     
     /// A boolean indicating whether the camera can change to another.
@@ -416,7 +416,7 @@ open class Capture: UIView {
     /// A reference to the flashMode.
     open var flashMode: AVCaptureFlashMode {
         get {
-            return activeCamera!.flashMode
+            return .on // activeCamera!.flashMode
         }
         set(value) {
             var error: NSError?
@@ -424,7 +424,7 @@ open class Capture: UIView {
                 do {
                     let device = activeCamera!
                     try device.lockForConfiguration()
-                    device.flashMode = value
+//                    device.flashMode = value
                     device.unlockForConfiguration()
                 } catch let e as NSError {
                     error = e
@@ -828,7 +828,7 @@ extension Capture {
      - Returns: A boolean of the result, true if supported, false otherwise.
      */
     open func isFlashModeSupported(flashMode: AVCaptureFlashMode) -> Bool {
-        return activeCamera!.isFlashModeSupported(flashMode)
+        return true //activeCamera!.isFlashModeSupported(flashMode)
     }
     
     /**
@@ -1051,13 +1051,14 @@ extension Capture {
      - Returns: An AVCaptureDevice if one exists, or nil otherwise.
      */
     fileprivate func camera(at position: AVCaptureDevicePosition) -> AVCaptureDevice? {
-        let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as! [AVCaptureDevice]
-        for device in devices {
-            if device.position == position {
-                return device
-            }
-        }
         return nil
+//        let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as! [AVCaptureDevice]
+//        for device in devices {
+//            if device.position == position {
+//                return device
+//            }
+//        }
+//        return nil
     }
     
     /**
