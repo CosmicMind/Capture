@@ -7,8 +7,8 @@ Pod::Spec.new do |s|
     s.social_media_url = 'https://www.facebook.com/cosmicmindcom'
     s.authors = { 'CosmicMind, Inc.' => 'support@cosmicmind.com' }
     s.source = { :git => 'https://github.com/CosmicMind/Lens.git', :tag => s.version }
-    s.platform = :ios, '8.0'
-    s.ios.deployment_target = '8.0'
+    s.platform = :ios, '10.0'
+    s.ios.deployment_target = '10.0'
     s.ios.source_files = 'Sources/*.swift'
     s.requires_arc = true
 end
