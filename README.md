@@ -1,4 +1,4 @@
-## Welcome to Flash
+## Welcome to Capture
 
 A framework for managing photos and video in iOS.
 
