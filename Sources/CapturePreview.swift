@@ -44,7 +44,7 @@ open class CapturePreview: UIView {
      - Returns: A CGPoint that is converted.
      */
     open func captureDevicePointOfInterestForPoint(point: CGPoint) -> CGPoint {
-		return (layer as! AVCaptureVideoPreviewLayer).captureDevicePointOfInterest(for: point)
+        return (layer as! AVCaptureVideoPreviewLayer).captureDevicePointConverted(fromLayerPoint: point)
 	}
 
 	/**
@@ -55,7 +55,7 @@ open class CapturePreview: UIView {
      - Returns: A CGPoint that is converted.
      */
 	open func pointForCaptureDevicePointOfInterest(point: CGPoint) -> CGPoint {
-		return (layer as! AVCaptureVideoPreviewLayer).pointForCaptureDevicePoint(ofInterest: point)
+        return (layer as! AVCaptureVideoPreviewLayer).layerPointConverted(fromCaptureDevicePoint: point)
 	}
 
     /**
@@ -73,6 +73,6 @@ open class CapturePreview: UIView {
 	private func preparePreviewLayer() {
 		layer.backgroundColor = UIColor.black.cgColor
 		layer.masksToBounds = true
-		(layer as! AVCaptureVideoPreviewLayer).videoGravity = AVLayerVideoGravityResizeAspectFill
+        (layer as! AVCaptureVideoPreviewLayer).videoGravity = AVLayerVideoGravity.resizeAspectFill
 	}
 }

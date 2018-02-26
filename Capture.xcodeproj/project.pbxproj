@@ -12,7 +12,7 @@
 		965689BC1F017E37001C656D /* CapturePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689B51F017E37001C656D /* CapturePreview.swift */; };
 		965689BE1F017E37001C656D /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689B71F017E37001C656D /* PhotoLibrary.swift */; };
 		965689BF1F017E37001C656D /* PhotoLibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689B81F017E37001C656D /* PhotoLibraryController.swift */; };
-		965689C01F017E37001C656D /* Flash.h in Headers */ = {isa = PBXBuildFile; fileRef = 965689B91F017E37001C656D /* Flash.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		965689C01F017E37001C656D /* Capture.h in Headers */ = {isa = PBXBuildFile; fileRef = 965689B91F017E37001C656D /* Capture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		965689C11F017E4A001C656D /* Capture.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689B31F017E37001C656D /* Capture.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		965689C21F017E4A001C656D /* CaptureController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689B41F017E37001C656D /* CaptureController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		965689C31F017E4A001C656D /* CapturePreview.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689B51F017E37001C656D /* CapturePreview.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,14 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9656898E1F017C2A001C656D /* Flash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9656898E1F017C2A001C656D /* Capture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Capture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		965689B31F017E37001C656D /* Capture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capture.swift; sourceTree = "<group>"; };
 		965689B41F017E37001C656D /* CaptureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureController.swift; sourceTree = "<group>"; };
 		965689B51F017E37001C656D /* CapturePreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePreview.swift; sourceTree = "<group>"; };
 		965689B61F017E37001C656D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		965689B71F017E37001C656D /* PhotoLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLibrary.swift; sourceTree = "<group>"; };
 		965689B81F017E37001C656D /* PhotoLibraryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLibraryController.swift; sourceTree = "<group>"; };
-		965689B91F017E37001C656D /* Flash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flash.h; sourceTree = "<group>"; };
+		965689B91F017E37001C656D /* Capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capture.h; sourceTree = "<group>"; };
 		965689C81F017EC0001C656D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,7 +55,7 @@
 		9656898F1F017C2A001C656D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9656898E1F017C2A001C656D /* Flash.framework */,
+				9656898E1F017C2A001C656D /* Capture.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				965689C81F017EC0001C656D /* LICENSE */,
-				965689B91F017E37001C656D /* Flash.h */,
+				965689B91F017E37001C656D /* Capture.h */,
 				965689B31F017E37001C656D /* Capture.swift */,
 				965689B41F017E37001C656D /* CaptureController.swift */,
 				965689B51F017E37001C656D /* CapturePreview.swift */,
@@ -87,16 +87,16 @@
 				965689C31F017E4A001C656D /* CapturePreview.swift in Headers */,
 				965689C41F017E4A001C656D /* PhotoLibrary.swift in Headers */,
 				965689C51F017E4A001C656D /* PhotoLibraryController.swift in Headers */,
-				965689C01F017E37001C656D /* Flash.h in Headers */,
+				965689C01F017E37001C656D /* Capture.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9656898D1F017C2A001C656D /* Flash */ = {
+		9656898D1F017C2A001C656D /* Capture */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 965689961F017C2A001C656D /* Build configuration list for PBXNativeTarget "Flash" */;
+			buildConfigurationList = 965689961F017C2A001C656D /* Build configuration list for PBXNativeTarget "Capture" */;
 			buildPhases = (
 				965689891F017C2A001C656D /* Sources */,
 				9656898A1F017C2A001C656D /* Frameworks */,
@@ -107,9 +107,9 @@
 			);
 			dependencies = (
 			);
-			name = Flash;
+			name = Capture;
 			productName = Photos;
-			productReference = 9656898E1F017C2A001C656D /* Flash.framework */;
+			productReference = 9656898E1F017C2A001C656D /* Capture.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +118,7 @@
 		965689851F017C2A001C656D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "CosmicMind, Inc.";
 				TargetAttributes = {
 					9656898D1F017C2A001C656D = {
@@ -128,7 +128,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 965689881F017C2A001C656D /* Build configuration list for PBXProject "Flash" */;
+			buildConfigurationList = 965689881F017C2A001C656D /* Build configuration list for PBXProject "Capture" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -140,7 +140,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9656898D1F017C2A001C656D /* Flash */,
+				9656898D1F017C2A001C656D /* Capture */,
 			);
 		};
 /* End PBXProject section */
@@ -182,7 +182,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -190,7 +192,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -214,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -236,7 +242,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -244,7 +252,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -262,7 +274,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -289,7 +301,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -308,14 +320,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Photos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		965689881F017C2A001C656D /* Build configuration list for PBXProject "Flash" */ = {
+		965689881F017C2A001C656D /* Build configuration list for PBXProject "Capture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				965689941F017C2A001C656D /* Debug */,
@@ -324,7 +336,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		965689961F017C2A001C656D /* Build configuration list for PBXNativeTarget "Flash" */ = {
+		965689961F017C2A001C656D /* Build configuration list for PBXNativeTarget "Capture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				965689971F017C2A001C656D /* Debug */,

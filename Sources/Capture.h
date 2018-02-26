@@ -30,11 +30,11 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for Flash.
-FOUNDATION_EXPORT double FlashVersionNumber;
+//! Project version number for Capture.
+FOUNDATION_EXPORT double CaptureVersionNumber;
 
-//! Project version string for Flash.
-FOUNDATION_EXPORT const unsigned char FlashVersionString[];
+//! Project version string for Capture.
+FOUNDATION_EXPORT const unsigned char CaptureVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Photos/PublicHeader.h>
 

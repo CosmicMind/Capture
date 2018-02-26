@@ -62,33 +62,33 @@ public enum CapturePreset: Int {
 public func CapturePresetToString(preset: CapturePreset) -> String {
     switch preset {
     case .presetPhoto:
-        return AVCaptureSessionPresetPhoto
+        return AVCaptureSession.Preset.photo.rawValue
     case .presetHigh:
-        return AVCaptureSessionPresetHigh
+        return AVCaptureSession.Preset.high.rawValue
     case .presetMedium:
-        return AVCaptureSessionPresetMedium
+        return AVCaptureSession.Preset.medium.rawValue
     case .presetLow:
-        return AVCaptureSessionPresetLow
+        return AVCaptureSession.Preset.low.rawValue
     case .preset352x288:
-        return AVCaptureSessionPreset352x288
+        return AVCaptureSession.Preset.cif352x288.rawValue
     case .preset640x480:
-        return AVCaptureSessionPreset640x480
+        return AVCaptureSession.Preset.vga640x480.rawValue
     case .preset1280x720:
-        return AVCaptureSessionPreset1280x720
+        return AVCaptureSession.Preset.hd1280x720.rawValue
     case .preset1920x1080:
-        return AVCaptureSessionPreset1920x1080
+        return AVCaptureSession.Preset.hd1920x1080.rawValue
     case .preset3840x2160:
         if #available(iOS 9.0, *) {
-            return AVCaptureSessionPreset3840x2160
+            return AVCaptureSession.Preset.hd4K3840x2160.rawValue
         } else {
-            return AVCaptureSessionPresetHigh
+            return AVCaptureSession.Preset.high.rawValue
         }
     case .presetiFrame960x540:
-        return AVCaptureSessionPresetiFrame960x540
+        return AVCaptureSession.Preset.iFrame960x540.rawValue
     case .presetiFrame1280x720:
-        return AVCaptureSessionPresetiFrame1280x720
+        return AVCaptureSession.Preset.iFrame1280x720.rawValue
     case .presetInputPriority:
-        return AVCaptureSessionPresetInputPriority
+        return AVCaptureSession.Preset.inputPriority.rawValue
     }
 }
 
@@ -210,7 +210,7 @@ public protocol CaptureDelegate {
      - Parameter willChangeCamera devicePosition: An AVCaptureDevicePosition that the camera will change to.
      */
     @objc
-    optional func capture(capture: Capture, willChangeCamera devicePosition: AVCaptureDevicePosition)
+    optional func capture(capture: Capture, willChangeCamera devicePosition: AVCaptureDevice.Position)
     
     /**
      A delegation method that is executed when the camera has been changed to another.
@@ -218,7 +218,7 @@ public protocol CaptureDelegate {
      - Parameter didChangeCamera devicePosition: An AVCaptureDevicePosition that the camera has changed to.
      */
     @objc
-    optional func capture(capture: Capture, didChangeCamera devicePosition: AVCaptureDevicePosition)
+    optional func capture(capture: Capture, didChangeCamera devicePosition: AVCaptureDevice.Position)
     
     /**
      A delegation method that is executed when the device orientation changes.
@@ -379,12 +379,12 @@ open class Capture: UIView {
     }
     
     /// A reference to the active camera position if the active camera exists.
-    open var devicePosition: AVCaptureDevicePosition? {
+    open var devicePosition: AVCaptureDevice.Position? {
         return activeCamera?.position
     }
     
     /// A reference to the focusMode.
-    open var focusMode: AVCaptureFocusMode {
+    open var focusMode: AVCaptureDevice.FocusMode {
         get {
             return activeCamera!.focusMode
         }
@@ -414,7 +414,7 @@ open class Capture: UIView {
     }
     
     /// A reference to the flashMode.
-    open var flashMode: AVCaptureFlashMode {
+    open var flashMode: AVCaptureDevice.FlashMode {
         get {
             return .on // activeCamera!.flashMode
         }
@@ -444,7 +444,7 @@ open class Capture: UIView {
     }
     
     /// A reference to the torchMode.
-    open var torchMode: AVCaptureTorchMode {
+    open var torchMode: AVCaptureDevice.TorchMode {
         get {
             return activeCamera!.torchMode
         }
@@ -476,7 +476,7 @@ open class Capture: UIView {
     /// The session quality preset.
     open var capturePreset = CapturePreset.presetPhoto {
         didSet {
-            session.sessionPreset = CapturePresetToString(preset: capturePreset)
+            session.sessionPreset = AVCaptureSession.Preset(rawValue: CapturePresetToString(preset: capturePreset))
         }
     }
     
@@ -691,13 +691,13 @@ extension Capture {
     /// Prepares the activeVideoInput.
     fileprivate func prepareActiveVideoInput() {
         do {
-            activeVideoInput = try AVCaptureDeviceInput(device: AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo))
+            activeVideoInput = try AVCaptureDeviceInput(device: AVCaptureDevice.default(for: .video)!)
             
-            guard session.canAddInput(activeVideoInput) else {
+            guard session.canAddInput(activeVideoInput!) else {
                 return
             }
             
-            session.addInput(activeVideoInput)
+            session.addInput(activeVideoInput!)
         } catch let e as NSError {
             delegate?.capture?(capture: self, failedWith: e)
         }
@@ -706,13 +706,13 @@ extension Capture {
     /// Prepares the activeAudioInput.
     fileprivate func prepareActiveAudioInput() {
         do {
-            activeAudioInput = try AVCaptureDeviceInput(device: AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio))
+            activeAudioInput = try AVCaptureDeviceInput(device: AVCaptureDevice.default(for: .audio)!)
             
-            guard session.canAddInput(activeAudioInput) else {
+            guard session.canAddInput(activeAudioInput!) else {
                 return
             }
             
-            session.addInput(activeAudioInput)
+            session.addInput(activeAudioInput!)
         } catch let e as NSError {
             delegate?.capture?(capture: self, failedWith: e)
         }
@@ -780,13 +780,13 @@ extension Capture {
             
             let videoInput = try AVCaptureDeviceInput(device: inactiveCamera!)
             session.beginConfiguration()
-            session.removeInput(activeVideoInput)
+            session.removeInput(activeVideoInput!)
             
             if session.canAddInput(videoInput) {
                 session.addInput(videoInput)
                 activeVideoInput = videoInput
             } else {
-                session.addInput(activeVideoInput)
+                session.addInput(activeVideoInput!)
             }
             
             session.commitConfiguration()
@@ -809,7 +809,7 @@ extension Capture {
      - Parameter focusMode: An AVCaptureFocusMode.
      - Returns: A boolean of the result, true if supported, false otherwise.
      */
-    open func isFocusModeSupported(focusMode: AVCaptureFocusMode) -> Bool {
+    open func isFocusModeSupported(focusMode: AVCaptureDevice.FocusMode) -> Bool {
         return activeCamera!.isFocusModeSupported(focusMode)
     }
     
@@ -818,7 +818,7 @@ extension Capture {
      - Parameter exposureMode: An AVCaptureExposureMode.
      - Returns: A boolean of the result, true if supported, false otherwise.
      */
-    open func isExposureModeSupported(exposureMode: AVCaptureExposureMode) -> Bool {
+    open func isExposureModeSupported(exposureMode: AVCaptureDevice.ExposureMode) -> Bool {
         return activeCamera!.isExposureModeSupported(exposureMode)
     }
     
@@ -827,7 +827,7 @@ extension Capture {
      - Parameter flashMode: An AVCaptureFlashMode.
      - Returns: A boolean of the result, true if supported, false otherwise.
      */
-    open func isFlashModeSupported(flashMode: AVCaptureFlashMode) -> Bool {
+    open func isFlashModeSupported(flashMode: AVCaptureDevice.FlashMode) -> Bool {
         return true //activeCamera!.isFlashModeSupported(flashMode)
     }
     
@@ -836,7 +836,7 @@ extension Capture {
      - Parameter torchMode: An AVCaptureTorchMode.
      - Returns: A boolean of the result, true if supported, false otherwise.
      */
-    open func isTorchModeSupported(torchMode: AVCaptureTorchMode) -> Bool {
+    open func isTorchModeSupported(torchMode: AVCaptureDevice.TorchMode) -> Bool {
         return activeCamera!.isTorchModeSupported(torchMode)
     }
     
@@ -961,7 +961,7 @@ extension Capture {
                 return
             }
             
-            guard let v = s.imageOutput.connection(withMediaType: AVMediaTypeVideo) else {
+            guard let v = s.imageOutput.connection(with: .video) else {
                 return
             }
             
@@ -1009,7 +1009,7 @@ extension Capture {
                     return
                 }
                 
-                if let v = s.movieOutput.connection(withMediaType: AVMediaTypeVideo) {
+                if let v = s.movieOutput.connection(with: AVMediaType.video) {
                     v.videoOrientation = s.videoOrientation
                     v.preferredVideoStabilizationMode = .auto
                 }
@@ -1030,7 +1030,7 @@ extension Capture {
                 
                 s.movieOutputURL = s.uniqueURL()
                 if let v = s.movieOutputURL {
-                    s.movieOutput.startRecording(toOutputFileURL: v as URL!, recordingDelegate: s)
+                    s.movieOutput.startRecording(to: v as URL!, recordingDelegate: s)
                 }
             }
         }
@@ -1050,15 +1050,16 @@ extension Capture {
      - Parameter at: An AVCaptureDevicePosition.
      - Returns: An AVCaptureDevice if one exists, or nil otherwise.
      */
-    fileprivate func camera(at position: AVCaptureDevicePosition) -> AVCaptureDevice? {
-        return nil
-//        let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as! [AVCaptureDevice]
+    fileprivate func camera(at position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+//        let devices = AVCaptureDevice.DiscoverySession  //AVCaptureDevice.devices(for: AVMediaType.video)
+//
 //        for device in devices {
 //            if device.position == position {
 //                return device
 //            }
 //        }
-//        return nil
+//
+        return nil
     }
     
     /**
@@ -1260,6 +1261,10 @@ extension Capture: UIGestureRecognizerDelegate {
 }
 
 extension Capture: AVCaptureFileOutputRecordingDelegate {
+    public func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
+        
+    }
+    
     public func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
         isRecording = true
         delegate?.capture?(capture: self, captureOutput: captureOutput, didStartRecordingToOutputFileAt: fileURL as NSURL, fromConnections: connections)
