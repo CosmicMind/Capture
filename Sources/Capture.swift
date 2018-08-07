@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2018, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -284,7 +284,7 @@ open class Capture: UIView {
     open weak var delegate: CaptureDelegate?
     
 	/// A reference to the CapturePreview view.
-	open let preview = CapturePreview()
+	public let preview = CapturePreview()
 		
     /// A Timer reference for when recording is enabled.
     open fileprivate(set) var timer: Timer?
@@ -629,7 +629,7 @@ extension Capture {
     /// Prepares self to observe orientation change notifications.
     fileprivate func prepareOrientationNotifications() {
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
-        NotificationCenter.default.addObserver(self, selector: #selector(handleOrientationNotifications(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(handleOrientationNotifications(_:)), name: NSNotification.Name.UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     /// Removes self from observing orientation change notifications.
@@ -1030,7 +1030,7 @@ extension Capture {
                 
                 s.movieOutputURL = s.uniqueURL()
                 if let v = s.movieOutputURL {
-                    s.movieOutput.startRecording(to: v as URL!, recordingDelegate: s)
+                    s.movieOutput.startRecording(to: v as URL, recordingDelegate: s)
                 }
             }
         }
@@ -1191,7 +1191,7 @@ extension Capture {
         timer?.invalidate()
         timer = Timer(timeInterval: 0.5, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
-        RunLoop.main.add(timer!, forMode: .commonModes)
+      RunLoop.main.add(timer!, forMode: .RunLoop.Mode.common)
         
         delegate?.capture?(capture: self, didStartRecord: timer!)
     }

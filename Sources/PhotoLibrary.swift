@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2018, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -570,7 +570,7 @@ extension PhotoLibrary {
      - Returns: A PHImageRequestID.
      */
     @discardableResult
-    public func requestImageData(for asset: PHAsset, options: PHImageRequestOptions?, completion: @escaping (Data?, String?, UIImageOrientation, [AnyHashable: Any]?) -> Void) -> PHImageRequestID {
+  public func requestImageData(for asset: PHAsset, options: PHImageRequestOptions?, completion: @escaping (Data?, String?, UIImage.Orientation, [AnyHashable: Any]?) -> Void) -> PHImageRequestID {
         return PHImageManager.default().requestImageData(for: asset, options: options, resultHandler: completion)
     }
     
